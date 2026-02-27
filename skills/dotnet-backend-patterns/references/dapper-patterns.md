@@ -124,7 +124,7 @@ var rowsAffected = await connection.ExecuteAsync(
     SET Name = @Name, Price = @Price, UpdatedAt = @UpdatedAt
     WHERE Id = @Id
     """,
-    new { product.Id, product.Name, product.Price, UpdatedAt = DateTime.UtcNow });
+    new { product.Id, product.Name, product.Price, UpdatedAt = DateTime.Now });
 
 // DELETE
 await connection.ExecuteAsync(

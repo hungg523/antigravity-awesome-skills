@@ -574,8 +574,8 @@ public class StaleWhileRevalidateCache<T>
     
     private record CacheEntry<TValue>(TValue Value, DateTime CreatedAt)
     {
-        public bool IsStale => DateTime.UtcNow - CreatedAt > _freshDuration;
-        public bool IsExpired => DateTime.UtcNow - CreatedAt > _staleDuration;
+        public bool IsStale => DateTime.Now - CreatedAt > _freshDuration;
+        public bool IsExpired => DateTime.Now - CreatedAt > _staleDuration;
     }
 }
 ```

@@ -168,7 +168,7 @@ public class DapperProductRepository : IProductRepository
             """;
 
         await _connection.ExecuteAsync(
-            new CommandDefinition(sql, new { Id = id, UpdatedAt = DateTime.UtcNow }, cancellationToken: ct));
+            new CommandDefinition(sql, new { Id = id, UpdatedAt = DateTime.Now }, cancellationToken: ct));
     }
 
     public async Task<IReadOnlyList<Product>> GetByIdsAsync(
@@ -283,7 +283,7 @@ public class EfCoreProductRepository : IProductRepository
         if (product != null)
         {
             product.IsDeleted = true;
-            product.UpdatedAt = DateTime.UtcNow;
+            product.UpdatedAt = DateTime.Now;
             await _context.SaveChangesAsync(ct);
         }
     }

@@ -109,7 +109,7 @@ await _context.Products
     .Where(p => p.CategoryId == oldCategoryId)
     .ExecuteUpdateAsync(s => s
         .SetProperty(p => p.CategoryId, newCategoryId)
-        .SetProperty(p => p.UpdatedAt, DateTime.UtcNow),
+        .SetProperty(p => p.UpdatedAt, DateTime.Now),
         ct);
 
 // ✅ Good - Single SQL DELETE

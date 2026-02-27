@@ -186,7 +186,7 @@ public class ProductService : IProductService
                 Sku = request.Sku,
                 Price = request.Price,
                 CategoryId = request.CategoryId,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.Now
             };
 
             // Persist
@@ -230,7 +230,7 @@ public class ProductService : IProductService
             if (request.Name != null) existing.Name = request.Name;
             if (request.Price.HasValue) existing.Price = request.Price.Value;
             if (request.CategoryId.HasValue) existing.CategoryId = request.CategoryId.Value;
-            existing.UpdatedAt = DateTime.UtcNow;
+            existing.UpdatedAt = DateTime.Now;
 
             // Persist
             var updated = await _repository.UpdateAsync(existing, ct);
